@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N and C Coffee</title>
+  <style>
+    body {
+      background-color: #f5f5dc; /* Light cream background */
+      color: #8b4513; /* Dark brown text */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* Ensure full height */
+    }
+  
+    h1 {
+      margin-top: 50px;
+    }
+  
+    button {
+      cursor: pointer;
+      padding: 15px 30px; /* Larger padding for buttons */
+      background-color: #ffa500; /* Orange button background */
+      color: #f5f5dc; /* Light cream text on the button */
+      margin-top: 20px;
+    }
+  
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin-top: 20px;
+    }
+  
+    table, th, td {
+      border: 1px solid #8b4513; /* Dark brown border for table */
+    }
+  
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+  
+</head>
+<body>
+  <h1 onclick="location.href='title.html'">N and C Coffee</h1>
+  <button onclick="location.href='confirm.html'">My Order</button>
+  <p>Select your beverage</p>
+  <button onclick="location.href='condiments.html?beverage=Espresso'">Espresso</button>
+  <button onclick="location.href='condiments.html?beverage=Decaf'">Decaf</button>
+  <button onclick="location.href='condiments.html?beverage=House Blend'">House Blend</button>
+  <button onclick="location.href='condiments.html?beverage=Dark Roast'">Dark Roast</button>
+</body>
+</html>
