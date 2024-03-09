@@ -81,7 +81,7 @@ function fetchOrderDetails() {
     condiments: condiments
   };
 
-  fetch('http://localhost:8080/orders', {
+  fetch('https://coffee-order-master-latest.onrender.com/orders', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
