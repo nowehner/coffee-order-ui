@@ -1,70 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>N and C Coffee</title>
-  <style>
-  body {
-    background-color: #f5f5dc; 
-    color: #8b4513; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; 
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>N and C coffee</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f3e5ab;
+      }
 
-  h1 {
-    margin-top: 50px;
-  }
+      .order-status,
+      .coffee-order {
+        position: absolute;
+        font-weight: bold;
+        margin: 15px;
+      }
 
-  button {
-    cursor: pointer;
-    padding: 15px 30px; 
-    background-color: #ffa500;
-    color: #f5f5dc; 
-    margin-top: 20px;
-  }
+      .order-status {
+        right: 10px;
+        top: 10px;
+        font-size: 30px;
+      }
 
-  table {
-    border-collapse: collapse;
-    width: 50%;
-    margin-top: 20px;
-  }
+      .coffee-order {
+        left: 10px;
+        top: 10px;
+        color: #cf740c;
+        font-size: 20px;
+      }
 
-  table, th, td {
-    border: 1px solid #8b4513; 
-  }
+      .condiment-title {
+        font-size: 24px;
+        margin-left: 120px;
+        color: black;
+        font-weight: bold;
+        font-size: 30px;
+      }
 
-  th, td {
-    padding: 10px;
-    text-align: center;
-  }
-  </style>
-  <script src="coffeeScript.js"></script>
-</head>
-<body>
-  <h1 onclick="location.href='title.html'">N and C Coffee</h1>
-  <button onclick="location.href='confirm.html'">My Order</button>
-  <p>Pick some condiments!</p>
-  <input type="checkbox" id="milk" onclick="updateOrder('Milk')"> <label for="milk">Milk</label><br>
-  <input type="checkbox" id="soy" onclick="updateOrder('Soy')"> <label for="soy">Soy</label><br>
-  <input type="checkbox" id="whip" onclick="updateOrder('Whip')"> <label for="whip">Whip</label><br>
-  <input type="checkbox" id="mocha" onclick="updateOrder('Mocha')"> <label for="mocha">Mocha</label><br>
+      .condiment-options {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-  <table>
-    <caption>My Order</caption>
-    <thead>
-      <tr>
-        <th>Condiment</th>
-      </tr>
-    </thead>
-    <tbody id="orderTableBody"></tbody>
-  </table>
+      .condiment-button {
+        background-color: #c2a661;
+        border: none;
+        padding: 20px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 150px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        margin: 40px;
+        font-weight: bold;
+        font-size: 30px;
+      }
 
-  <button onclick="location.href='beverage.html'">Back to Beverage Selection</button>
-  <button onclick="location.href='confirm.html'">Confirm Order</button>
-</body>
+      .condiment-button:hover {
+        background-color: #b4955d;
+      }
+
+      .my-order {
+        border-radius: 5px;
+
+        width: 300px;
+
+        border: black;
+      }
+
+      .my-order-button {
+        background-color: #c2a661;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: bold;
+        border: black;
+      }
+
+      .my-order-button:hover {
+        background-color: #b4955d;
+        cursor: pointer;
+      }
+
+      .container {
+        display: flex;
+      }
+
+      .grouping-1 {
+        display: flex;
+      }
+
+      .grouping-2 {
+        flex-direction: column;
+      }
+
+      .condiment-group {
+        display: flex;
+      }
+
+      .order-title {
+        color: #cf740c;
+        font-size: 25px;
+        justify-content: center;
+        align-items: center;
+        margin-left: 90px;
+      }
+
+      .confirm-order {
+        margin-top: 115px;
+      }
+
+      .order-section {
+        display: flex;
+        flex-direction: column;
+        border: solid black;
+        border-radius: 20px;
+        padding: 20px;
+
+        margin-left: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="coffee-order">N and C coffee</div>
+    <div class="order-status">Order Status</div>
+
+    <div class="container">
+      <div class="grouping-1">
+        <div class="grouping-2">
+          <div class="condiment-title">Select the condiment</div>
+          <div class="condiment-options">
+            <div class="condiment-group">
+              <div class="condiment-button" onclick="addCondiment('Milk')">
+                Milk
+              </div>
+              <div class="condiment-button" onclick="addCondiment('Soy')">
+                Soy
+              </div>
+            </div>
+            <div class="condiment-group">
+              <div class="condiment-button" onclick="addCondiment('Mocha')">
+                Mocha
+              </div>
+              <div class="condiment-button" onclick="addCondiment('Whip')">
+                Whip
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-section">
+        <h1 class="order-title">Your Order</h1>
+        <div class="my-order" id="my-order">
+          <div
+            id="selected-beverage"
+            class="my-order-button"
+            onclick="goBackToSelectBeverage()"
+          >
+            Selected Beverage
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let selectedCondiments = [];
+
+      function addCondiment(condiment) {
+        selectedCondiments.push(condiment);
+        updateMyOrder();
+      }
+
+      function updateMyOrder() {
+        const myOrderDiv = document.getElementById("my-order");
+        const selectedBeverage = document.getElementById("selected-beverage");
+        myOrderDiv.innerHTML = "";
+        myOrderDiv.appendChild(selectedBeverage);
+
+        selectedCondiments.forEach((condiment) => {
+          const condimentDiv = document.createElement("div");
+          condimentDiv.textContent = condiment;
+          condimentDiv.className = "my-order-button";
+          myOrderDiv.appendChild(condimentDiv);
+        });
+
+        const confirmOrderButton = document.createElement("div");
+        confirmOrderButton.textContent = "Confirm Order";
+        confirmOrderButton.className = "confirm-order my-order-button";
+        confirmOrderButton.onclick = confirmOrder;
+        myOrderDiv.appendChild(confirmOrderButton);
+      }
+
+      function goBackToSelectBeverage() {
+        window.location.href = "beverage.html";
+      }
+
+      function confirmOrder() {
+        const condimentsArray = Array.from(selectedCondiments);
+        const condimentsString = condimentsArray.join(", ");
+        sessionStorage.setItem("selectedCondiments", condimentsString);
+        window.location.href = "confirm.html";
+      }
+    </script>
+  </body>
 </html>
-

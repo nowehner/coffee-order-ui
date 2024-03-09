@@ -1,32 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      background-color: #f5f5dc;
-      color: #8b4513;
-    }
-  
-    h1 {
-      margin-top: 50px;
-    }
-  
-    button {
-      background-color: #ffa500; 
-      color: #f5f5dc; 
-      margin-top: 20px;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Order System</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f3e5ab;
+      }
 
-  </style>  
-  <title>N and C Coffee</title>
-</head>
-<body>
-  <h1>N and C Coffee</h1>
-  <button onclick="location.href='confirm.html'">My Order</button>
-  <button onclick="location.href='beverage.html'">Begin Order</button>
-</body>
+      .container {
+        text-align: center;
+      }
+
+      .order-status {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-weight: bold;
+        font-size: 30px;
+        margin: 15px;
+      }
+
+      .coffe-order {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        color: #cf740c;
+        font-weight: bold;
+        font-size: 20px;
+        margin: 15px;
+      }
+
+      .start-button {
+        background-color: #c2a661;
+        border: none;
+        padding: 50px 60px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        font-size: 30px;
+      }
+
+      .start-button:hover {
+        background-color: #b4955d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="coffe-order">Coffee Order System</div>
+    <div class="order-status">Order Status</div>
+
+    <div class="container">
+      <a href="beverage.html" class="start-button"
+        >Start your order here</a
+      >
+    </div>
+  </body>
 </html>
