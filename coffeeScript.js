@@ -81,10 +81,11 @@ function fetchOrderDetails() {
     condiments: condiments
   };
 
-  fetch('https://coffee-order-master-latest.onrender.com/orders', {
+  fetch('https://coffee-order-latest-bb01.onrender.com/orders', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
+      
     },
     body: JSON.stringify(orderData)
   })

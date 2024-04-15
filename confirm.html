@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="navbar.css">
     <title>Order Confirmation - Coffee Order System</title>
     <style>
       body {
@@ -55,6 +56,13 @@
     </style>
   </head>
   <body>
+    <ul class="topnav">
+      <li><a  href="title.html">Title</a></li>
+      <li><a href="confirm.html">confirm</a></li>        
+      <li><a href="condiments.html">condiments</a></li>
+      <li><a href="beverage.html">Beverage</a></li>
+      <li class="right"><a  class="active" href="login.html">Login</a></li>
+  </ul>
     <div class="coffee-order">Coffee Order System</div>
     <div class="order-status">Order Status</div>
 
@@ -88,10 +96,11 @@
         condiments: condiments
       };
 
-      fetch('https://coffee-order-master-latest.onrender.com/orders', {
+      fetch('http://localhost:8080/orders', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${configuration.token()}`
         },
         body: JSON.stringify(orderData)
       })
@@ -104,5 +113,8 @@
   
       fetchOrderDetails();
     </script>
+    <script src="configuration.js"></script>
+
+<script src="register.js"></script>
   </body>
 </html>
